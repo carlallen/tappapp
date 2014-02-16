@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @beer.name
+%p
+  %b Description:
+  = simple_format(@beer.description)
+%p
+  %b Brewery:
+  = link_to @beer.brewery_name, brewery_path(@beer.brewery)
+%p
+  %b IBU:
+  = @beer.ibu
+%p
+  %b SRM:
+  = srm @beer.srm
+%p
+  %b ABV:
+  = "#{@beer.abv}%"
+
+-if user_signed_in?
+  = link_to 'Edit', edit_beer_path(@beer)
+  \|
+= link_to 'Back', beers_path

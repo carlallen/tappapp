@@ -8,8 +8,9 @@
   = @brewery.location
 %p
   %b Description:
-  = @brewery.description
+  = simple_format(@brewery.description)
 
-= link_to 'Edit', edit_brewery_path(@brewery)
-\|
+- if user_signed_in?
+  = link_to 'Edit', edit_brewery_path(@brewery)
+  \|
 = link_to 'Back', breweries_path

@@ -11,7 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-typeahead-rails
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require handlebars.runtime
+//= require handlebars
 //= require_tree .

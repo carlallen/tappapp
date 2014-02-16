@@ -5,7 +5,11 @@ class BreweriesController < ApplicationController
   # GET /breweries
   # GET /breweries.json
   def index
-    @breweries = Brewery.all
+    if params[:name].present?
+      @breweries = Brewery.where("lower(name) like lower(?)", "%#{params[:name]}%")
+    else
+      @breweries = Brewery.all
+    end
   end
 
   # GET /breweries/1

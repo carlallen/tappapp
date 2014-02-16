@@ -1,0 +1,29 @@
+%h1 Listing beers
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Brewery
+      %th.thin IBU
+      %th.thin SRM
+      %th.thin ABV
+      - if user_signed_in?
+        %th
+
+  %tbody
+    - @beers.each do |beer|
+      %tr
+        %td= link_to beer.name, beer
+        %td= link_to beer.brewery_name, brewery_path(beer.brewery)
+        %td= beer.ibu
+        %td= srm beer.srm
+        %td= "#{beer.abv}%"
+        -if user_signed_in?
+          %td
+            = primary_link_to icon_with_text("pencil", "Edit"), edit_beer_path(beer)
+            = danger_link_to icon_with_text("trash", 'Destroy'), beer, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= primary_link_to 'New Beer', new_beer_path if user_signed_in?

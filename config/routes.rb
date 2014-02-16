@@ -1,4 +1,6 @@
 Tappapp::Application.routes.draw do
+  resources :beers
+
   resources :breweries
 
   root :to => "home#index"

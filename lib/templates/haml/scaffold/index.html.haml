@@ -3,17 +3,17 @@
 %table.table
   %thead
     %tr
-  <% for attribute in attributes -%>
+<% for attribute in attributes -%>
       %th <%= attribute.human_name %>
-  <% end -%>
+<% end -%>
       %th
 
   %tbody
     - @<%= plural_table_name %>.each do |<%= singular_table_name %>|
       %tr
-  <% for attribute in attributes -%>
+<% for attribute in attributes -%>
         %td= <%= singular_table_name %>.<%= attribute.name %>
-  <% end -%>
+<% end -%>
         %td
           = link_to "Show", <%= singular_table_name %>
           = primary_link_to icon_with_text("pencil", "Edit"), edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
@@ -21,4 +21,4 @@
 
 %br
 
-= primary_ link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path
+= primary_link_to 'New <%= human_name %>', new_<%= singular_table_name %>_path

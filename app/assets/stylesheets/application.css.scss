@@ -10,4 +10,10 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap-typeahead-rails
  */
+
+th.thin {
+  width: 50px;
+
+}
