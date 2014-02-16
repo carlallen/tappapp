@@ -1,0 +1,10 @@
+= twitter_bootstrap_form_for @brewery do |f|
+  - if @brewery.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@brewery.errors.count, "error")} prohibited this brewery from being saved:"
+
+  = f.text_field :name
+  = f.text_field :location
+  = f.text_area :description
+  .actions
+    = f.submit 'Save'

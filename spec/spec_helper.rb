@@ -12,6 +12,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 RSpec.configure do |config|
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+  config.include FactoryGirl::Syntax::Methods
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -38,8 +39,9 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-  
+
   config.before(:suite) do
+    FactoryGirl.lint
     DatabaseCleaner.strategy = :truncation
   end
   config.before(:each) do

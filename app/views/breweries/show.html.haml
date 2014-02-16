@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @brewery.name
+%p
+  %b Location:
+  = @brewery.location
+%p
+  %b Description:
+  = @brewery.description
+
+= link_to 'Edit', edit_brewery_path(@brewery)
+\|
+= link_to 'Back', breweries_path

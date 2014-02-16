@@ -1,0 +1,24 @@
+%h1 Listing breweries
+
+%table.table
+  %tr
+    %th Name
+    %th Location
+    %th Description
+    - if user_signed_in?
+      %th
+
+  - @breweries.each do |brewery|
+    %tr
+      %td= link_to brewery.name, brewery
+      %td= brewery.location
+      %td= brewery.description
+      - if user_signed_in?
+        %td
+          =primary_link_to icon_with_text("pencil", "Edit"), edit_brewery_path(brewery)
+          = danger_link_to icon_with_text("trash", 'Destroy'), brewery,
+                                     :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= primary_ link_to 'New Brewery', new_brewery_path if user_signed_in?
