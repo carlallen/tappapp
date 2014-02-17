@@ -19,6 +19,9 @@ gem 'haml-rails'
 gem 'pg'
 gem 'thin'
 
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'better_errors'
