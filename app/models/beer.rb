@@ -3,6 +3,7 @@ class Beer < ActiveRecord::Base
 
   validates :name, presence: true
   validates :brewery, presence:true
+  validates :srm, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 40}
 
   def brewery_name
     brewery.try(:name)
