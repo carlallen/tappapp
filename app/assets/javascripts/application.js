@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap-typeahead-rails
+//= require bootstrap-slider
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap

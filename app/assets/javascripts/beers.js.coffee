@@ -11,3 +11,10 @@ jQuery(document).on "ready page:change", ->
       "<p class=\"brewery-location\">{{location}}</p>"
     ].join(""))
     footer: Handlebars.compile("<hr/><a class='btn btn-primary' href='/breweries/new'>New Brewery</a> ")
+
+  $("#beer_srm").slider(
+    value: parseInt($("#beer_srm").data("value"))
+    max: 40
+  ).on "slide", (ev) ->
+    template = Handlebars.compile("<span class='srm srm-{{value}}'>{{value}} °L</span>")
+    $('#srm_info').html template(value: ev.value)

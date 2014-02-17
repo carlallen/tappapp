@@ -6,6 +6,11 @@
   = f.text_area :description
   = f.text_field :brewery_name, data: {autocomplete_source: breweries_path}
   = f.number_field :ibu
-  = f.number_field :srm
+  %span{style: "float: left"}
+    = f.number_field :srm
+  %span#srm_info{style: "float: left"}
+    = srm(@beer.srm)
+  %br{style: "clear:both"}
+
   = f.text_field :abv
   = f.submit 'Save'

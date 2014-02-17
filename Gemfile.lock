@@ -44,6 +44,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
+    bootstrap-slider-rails (1.9.0)
+      railties (>= 3.2, < 5.0)
     bootstrap-typeahead-rails (0.9.3.3)
       railties (>= 3.0)
     builder (3.1.4)
@@ -249,6 +251,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (>= 3.0.0.0)
+  bootstrap-slider-rails
   bootstrap-typeahead-rails
   capybara
   coffee-rails (~> 4.0.0)
