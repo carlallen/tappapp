@@ -1,0 +1,9 @@
+%h1 What's on Tap?
+
+- @taps.each_with_index do  |tap, index|
+  =render partial: "tap_panel", locals: {tap: tap, index: index}
+
+%br{style: "clear:both"}
+- if user_signed_in?
+  = twitter_bootstrap_form_for (@tap = Tap.new) do |f|
+    = f.submit 'Add Tap'

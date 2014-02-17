@@ -7,8 +7,7 @@ jQuery(document).on "ready page:change", ->
     remote: $("#beer_brewery_name").data("autocomplete-source") + "?name=%QUERY"
     valueKey: "name"
     template: Handlebars.compile([
-      "<p class=\"repo-language\">{{language}}</p>"
-      "<p class=\"repo-name\">{{name}}</p>"
-      "<p class=\"repo-description\">{{description}}</p>"
+      "<h4 class=\"brewery-name\">{{name}}</p>"
+      "<p class=\"brewery-location\">{{location}}</p>"
     ].join(""))
     footer: Handlebars.compile("<hr/><a class='btn btn-primary' href='/breweries/new'>New Brewery</a> ")

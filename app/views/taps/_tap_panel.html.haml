@@ -1,0 +1,23 @@
+.col-md-6
+  .panel.tap
+    .panel-heading
+      %h3.panel-title
+        = "Tap #{index+1}"
+        = danger_link_to icon_with_text("trash", 'Destroy'), tap, :method => :delete, :data => { :confirm => 'Are you sure?' } if user_signed_in?
+    .panel-body
+      - if tap.beer.blank?
+        = twitter_bootstrap_form_for tap do |f|
+          = f.text_field :beer_name, class: "beer_name_autocomplete"
+          = f.submit "Tap Beer"
+      - else
+        %h2= tap.beer_name
+        %h5= tap.beer.brewery_name
+        %h4= "#{tap.beer.ibu} IBU"
+        %h4= "#{tap.beer.abv}% ABV"
+        %h4
+          Color:
+          =srm(tap.beer.srm) || "?"
+        %p= simple_format(tap.beer.description)
+        = twitter_bootstrap_form_for tap do |f|
+          =f.hidden_field :beer_name, value: ""
+          =f.submit "Untap Beer"

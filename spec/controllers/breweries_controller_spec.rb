@@ -8,7 +8,7 @@ describe BreweriesController do
     it "assigns all breweries as @breweries" do
       brewery = create(:brewery)
       get :index, {}
-      assigns(:breweries).should eq([brewery])
+      assigns(:breweries).should eq(Brewery.all)
     end
   end
 
