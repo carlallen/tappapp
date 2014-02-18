@@ -1,0 +1,29 @@
+development:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: tappapp_development
+  pool:     5
+  username: root
+  password:
+  template: template0
+
+test:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: tappapp_test
+  pool:     5
+  username: root
+  password:
+  template: template0
+
+production:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: tappapp_production
+  pool:     5
+  username: root
+  password:
+  template: template0
