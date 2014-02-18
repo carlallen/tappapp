@@ -1,19 +1,12 @@
-sqlite: &sqlite
-  adapter: sqlite3
-  database: db/<%= Rails.env %>.sqlite3
-
-postgresql: &postgresql
-  adapter: postgresql
-  username: postgres
-  password:
-  database: tappapp_<%= Rails.env %>
-  min_messages: ERROR
-
 defaults: &defaults
   pool: 5
   timeout: 5000
   host: localhost
-  <<: *<%= ENV['DB'] || "postgresql" %>
+  adapter: postgresql
+  username: postgres
+  password:
+  database: tappapp_test
+  min_messages: ERROR
 
 development:
   <<: *defaults
