@@ -1,0 +1,18 @@
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  host: localhost
+  adapter: postgresql
+  username: postgres
+  password:
+  database: tappapp_test
+  min_messages: ERROR
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
