@@ -1,9 +1,42 @@
 %h1 What's on Tap?
 
-- @taps.each_with_index do  |tap, index|
-  =render partial: "tap_panel", locals: {tap: tap, index: index}
+-#- @taps.each_with_index do  |tap, index|
+  -#=render partial: "tap_panel", locals: {tap: tap, index: index}
 
-%br{style: "clear:both"}
-- if user_signed_in?
-  = twitter_bootstrap_form_for (@tap = Tap.new) do |f|
-    = f.submit 'Add Tap'
+-#%br{style: "clear:both"}
+-#- if user_signed_in?
+  -#= twitter_bootstrap_form_for (@tap = Tap.new) do |f|
+    -#= f.submit 'Add Tap'
+
+= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"
+
+:javascript
+  var tappApp = angular.module('tappApp', []);
+
+    tappApp.controller('TapsCtrl', function ($http) {
+      var baseURL = "/taps"
+
+      this.getTaps = function() {
+        $http.get(baseURL).then(function(data) {
+          this.taps = data.data
+        }.bind(this))
+      }
+
+      this.keepTapsSynchronized = function() {
+        setTimeout(function() {
+          var source = new EventSource('/taps/change')
+          source.addEventListener('update', function(e) {
+          })
+        }, 1)
+      }
+
+      this.getTaps()
+    })
+
+%div{ "ng-app" => "tappApp" }
+  %div{ "ng-controller" => "TapsCtrl as ctrl" }
+    .row
+      .col-md-6{ "ng-repeat" => "tap in ctrl.taps" }
+        .panel.tap
+          .panel-heading
+            {{tap.beer_name}}
