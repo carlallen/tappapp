@@ -1,0 +1,14 @@
+= twitter_bootstrap_form_for @user do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2 Error
+      %ul
+        - @user.errors.full_messages.each do |error|
+          %li= error
+
+  = f.text_field :email
+  = f.text_field :name
+  = f.text_field :password
+  = f.text_field :password_confirmation
+  .actions
+    = f.submit 'Save'

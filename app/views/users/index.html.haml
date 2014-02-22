@@ -1,6 +1,12 @@
-%h3 Users
-%ul.users
-  - @users.each do |user|
-    %li
-      = link_to user.name, user
-      signed up #{user.created_at.to_date}
+.container
+  .row
+    .col-md-6
+      %h3 Users
+      %ul.users
+        - @users.each do |user|
+          %li
+            = link_to user.name, user
+            signed up #{user.created_at.to_date}
+    .col-md-4
+    .col-md-2
+      = button_to "New User", { action: :new }, method: :get, class: "btn btn-success"
