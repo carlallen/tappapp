@@ -12,6 +12,12 @@ describe BreweriesController do
     end
   end
 
+  describe "GET search" do
+    it "assigns found breweries as @breweries" do
+      pending("need to mock out web request")
+    end
+  end
+
   describe "GET show" do
     it "assigns the requested brewery as @brewery" do
       brewery = create(:brewery)

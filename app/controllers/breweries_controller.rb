@@ -12,6 +12,18 @@ class BreweriesController < ApplicationController
     end
   end
 
+  # GET /breweries/search.json
+  def search
+    @breweries = $brewery_db.search.breweries(q: params[:q]).take(3)
+    @breweries.each do |brewery|
+      beers = $brewery_db.brewery(brewery.id).beers || []
+      if beer = beers.first
+        location = $brewery_db.beers.find(beer.id, withBreweries: "Y").breweries.first.locations.first
+        brewery.location = "#{location.locality}, #{location.region}"
+      end
+    end
+  end
+
   # GET /breweries/1
   # GET /breweries/1.json
   def show
