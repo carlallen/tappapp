@@ -18,6 +18,7 @@ gem 'figaro'
 gem 'haml-rails'
 gem 'pg'
 gem 'thin'
+gem 'brewery_db'
 
 group :production do
   gem 'rails_12factor'
