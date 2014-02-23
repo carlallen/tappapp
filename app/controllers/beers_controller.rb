@@ -12,6 +12,11 @@ class BeersController < ApplicationController
     end
   end
 
+  # GET /beers/search.json
+  def search
+    @beers = $brewery_db.search.beers(q: params[:q], withBreweries: "Y").take(10)
+  end
+
   # GET /beers/1
   # GET /beers/1.json
   def show

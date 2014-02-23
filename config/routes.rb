@@ -1,7 +1,9 @@
 Tappapp::Application.routes.draw do
   resources :taps
 
-  resources :beers
+  resources :beers do
+    get :search, on: :collection
+  end
 
   resources :breweries
 
