@@ -6,6 +6,8 @@ class BreweryDbService
 
   def search_beers(query)
     client.search.beers(q: query, withBreweries: "Y").take(10)
+  rescue BreweryDB::Unauthorized
+    []
   end
 
   def search_breweries(query)
@@ -20,5 +22,7 @@ class BreweryDbService
         brewery.location = "#{location.locality}, #{location.region}"
       end
     end
+  rescue BreweryDB::Unauthorized
+    []
   end
 end
