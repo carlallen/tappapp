@@ -7,8 +7,12 @@ jQuery(document).on "ready page:change", ->
     remote: $("#beer_name").data("autocomplete-source") + "?q=%QUERY"
     valueKey: "name"
     template: Handlebars.compile([
-      "<h4 class=\"brewery-name\">{{name}}</p>"
+      "<div class=\"row\">"
+      "<img class=\"col-md-3\" src=\"{{thumb}}\">"
+      "<div class=\"col-md-9\">"
+      "<h4 class=\"brewery-name\">{{name}}</h4>"
       "<p class=\"brewery-location\">{{brewery_name}}</p>"
+      "</div></div>"
     ].join(""))
 
   $("#beer_name").on('typeahead:selected', (e, beer)->
