@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'heroku'
+  gem 'webmock'
 end
 group :test do
   gem 'capybara'

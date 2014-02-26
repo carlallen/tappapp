@@ -7,6 +7,10 @@ describe BreweriesController do
       get("/breweries").should route_to("breweries#index")
     end
 
+    it "routes to #seach" do
+      get("/breweries/search").should route_to("breweries#search")
+    end
+
     it "routes to #new" do
       get("/breweries/new").should route_to("breweries#new")
     end

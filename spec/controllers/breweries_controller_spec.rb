@@ -12,12 +12,6 @@ describe BreweriesController do
     end
   end
 
-  describe "GET search" do
-    it "assigns found breweries as @breweries" do
-      pending("need to mock out web request")
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested brewery as @brewery" do
       brewery = create(:brewery)
@@ -30,6 +24,19 @@ describe BreweriesController do
     before (:each) do
       @user = create(:user)
       sign_in @user
+    end
+
+    describe "GET search" do
+      it "assigns found breweries as @breweries" do
+        response = File.new("spec/request_stubs/breweries_search.txt")
+        stub_request(:get, "http://api.brewerydb.com/v2/search?key&q=Indeed&type=brewery").to_return(response)
+        response = File.new("spec/request_stubs/brewery_beers.txt")
+        stub_request(:get, "http://api.brewerydb.com/v2/brewery/LhenPJ/beers?key").to_return(response)
+        response = File.new("spec/request_stubs/beer.txt")
+        stub_request(:get, "http://api.brewerydb.com/v2/beer/Ccu4qm?key&withBreweries=Y").to_return(response)
+        get :search, q: "Indeed", format: :json
+        assigns(:breweries).length.should eq(1)
+      end
     end
 
     describe "GET new" do

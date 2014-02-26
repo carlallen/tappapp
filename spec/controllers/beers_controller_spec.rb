@@ -12,12 +12,6 @@ describe BeersController do
     end
   end
 
-  describe "GET search" do
-    it "assigns found beers as @beers" do
-      pending("need to mock out web request")
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested beer as @beer" do
       beer = create(:beer)
@@ -30,6 +24,15 @@ describe BeersController do
     before (:each) do
       @user = create(:user)
       sign_in @user
+    end
+
+    describe "GET search" do
+      it "assigns found beers as @beers" do
+        response = File.new("spec/request_stubs/beers_search.txt")
+        stub_request(:get, "http://api.brewerydb.com/v2/search?key&q=Day%20Tripper&type=beer&withBreweries=Y").to_return(response)
+        get :search, q: "Day Tripper", format: :json
+        assigns(:beers).length.should eq(10)
+      end
     end
 
     describe "GET new" do
