@@ -3,6 +3,8 @@
     #error_explanation
       %h2= "#{pluralize(@beer.errors.count, "error")} prohibited this beer from being saved:"
   = f.text_field :name, data: {autocomplete_source: search_beers_path}
+  = f.hidden_field :brewery_db_id
+  = f.hidden_field :label_url
   = f.text_area :description
   = f.text_field :brewery_name, data: {autocomplete_source: breweries_path}
   = f.number_field :ibu

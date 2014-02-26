@@ -12,6 +12,8 @@ jQuery(document).on "ready page:change", ->
     ].join(""))
 
   $("#beer_name").on('typeahead:selected', (e, beer)->
+    $("#beer_brewery_db_id").val(beer.id)
+    $("#beer_label_url").val(beer.label)
     $("#beer_description").val(beer.description)
     $("#beer_brewery_name").val(beer.brewery_name)
     $("#beer_ibu").val(beer.ibu)

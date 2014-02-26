@@ -5,4 +5,6 @@ json.array!(@beers) do |beer|
   json.abv beer.abv
   json.srm beer.style.try(:srm_max)
   json.brewery_name beer.breweries.first.name
+  json.label beer.labels.try(:medium)
+  json.thumb beer.labels.try(:icon)
 end
