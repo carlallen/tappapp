@@ -1,16 +1,18 @@
 class BreweryDbService
-  attr_reader :client
-  def initialize(client = $brewery_db)
-    @client = client
+
+  def self.client
+    @client ||= BreweryDB::Client.new do |config|
+      config.api_key = ENV['BREWERY_DB_API_KEY']
+    end
   end
 
-  def search_beers(query)
+  def self.search_beers(query)
     client.search.beers(q: query, withBreweries: "Y").take(10)
   rescue BreweryDB::Unauthorized
     []
   end
 
-  def search_breweries(query)
+  def self.search_breweries(query)
     breweries = client.search.breweries(q: query).take(3)
     # This is necessary because BreweryDb only provides the location of the breweries as part
     # of the beers api (unless you pay for premium). So after I query the breweries,
@@ -25,4 +27,5 @@ class BreweryDbService
   rescue BreweryDB::Unauthorized
     []
   end
+
 end

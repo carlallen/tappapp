@@ -27,13 +27,11 @@ describe BreweriesController do
     end
 
     describe "GET search" do
+      before (:each) do
+        BreweryDbService.stub(:search_breweries) { [OpenStruct.new(name: "A Place Where Beer is Made")] }
+      end
+
       it "assigns found breweries as @breweries" do
-        response = File.new("spec/request_stubs/breweries_search.txt")
-        stub_request(:get, "http://api.brewerydb.com/v2/search?key&q=Indeed&type=brewery").to_return(response)
-        response = File.new("spec/request_stubs/brewery_beers.txt")
-        stub_request(:get, "http://api.brewerydb.com/v2/brewery/LhenPJ/beers?key").to_return(response)
-        response = File.new("spec/request_stubs/beer.txt")
-        stub_request(:get, "http://api.brewerydb.com/v2/beer/Ccu4qm?key&withBreweries=Y").to_return(response)
         get :search, q: "Indeed", format: :json
         assigns(:breweries).length.should eq(1)
       end

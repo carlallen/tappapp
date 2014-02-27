@@ -14,7 +14,7 @@ class BreweriesController < ApplicationController
 
   # GET /breweries/search.json
   def search
-    @breweries = BreweryDbService.new.search_breweries(params[:q])
+    @breweries = BreweryDbService.search_breweries(params[:q])
   end
 
   # GET /breweries/1

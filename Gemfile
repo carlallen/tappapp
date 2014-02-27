@@ -42,10 +42,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'heroku'
-  gem 'webmock'
 end
 group :test do
   gem 'capybara'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
+  gem 'webmock'
 end
