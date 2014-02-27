@@ -1,9 +1,13 @@
 Tappapp::Application.routes.draw do
   resources :taps
 
-  resources :beers
+  resources :beers do
+    get :search, on: :collection
+  end
 
-  resources :breweries
+  resources :breweries do
+    get :search, on: :collection
+  end
 
   root :to => "taps#index"
   devise_for :users, controllers: {

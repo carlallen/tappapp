@@ -12,6 +12,11 @@ class BreweriesController < ApplicationController
     end
   end
 
+  # GET /breweries/search.json
+  def search
+    @breweries = BreweryDbService.search_breweries(params[:q])
+  end
+
   # GET /breweries/1
   # GET /breweries/1.json
   def show

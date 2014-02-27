@@ -11,13 +11,16 @@
             = f.text_field :beer_name, class: "beer_name_autocomplete"
             = f.submit "Tap Beer"
       - else
-        %h2= tap.beer_name
-        %h5= tap.beer.brewery_name
-        %h4= "#{tap.beer.ibu} IBU"
-        %h4= "#{tap.beer.abv}% ABV"
-        %h4
-          Color:
-          =srm(tap.beer.srm) || "?"
+        .row
+          .col-md-8
+            %h2= tap.beer_name
+            %h5= tap.beer.brewery_name
+            %h4= "#{tap.beer.ibu} IBU"
+            %h4= "#{tap.beer.abv}% ABV"
+            %h4
+              Color:
+              =srm(tap.beer.srm) || "?"
+          .col-md-4= image_tag tap.beer.label_url
         %p= simple_format(tap.beer.description)
         = twitter_bootstrap_form_for tap do |f|
           =f.hidden_field :beer_name, value: ""

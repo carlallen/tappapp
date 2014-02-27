@@ -12,6 +12,11 @@ class BeersController < ApplicationController
     end
   end
 
+  # GET /beers/search.json
+  def search
+    @beers = BreweryDbService.search_beers(params[:q])
+  end
+
   # GET /beers/1
   # GET /beers/1.json
   def show
@@ -74,6 +79,6 @@ class BeersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
-      params.require(:beer).permit(:name, :description, :brewery_name, :ibu, :srm, :abv)
+      params.require(:beer).permit(:name, :description, :brewery_name, :ibu, :srm, :abv, :brewery_db_id, :label_url)
     end
 end

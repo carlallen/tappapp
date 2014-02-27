@@ -7,6 +7,10 @@ describe BeersController do
       get("/beers").should route_to("beers#index")
     end
 
+    it "routes to #search" do
+      get("/beers/search").should route_to("beers#search")
+    end
+
     it "routes to #new" do
       get("/beers/new").should route_to("beers#new")
     end

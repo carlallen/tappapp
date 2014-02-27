@@ -3,6 +3,29 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery(document).on "ready page:change", ->
+  $("#beer_name").typeahead
+    remote: $("#beer_name").data("autocomplete-source") + "?q=%QUERY"
+    valueKey: "name"
+    template: Handlebars.compile([
+      "<div class=\"row\">"
+      "<img class=\"col-md-3\" src=\"{{thumb}}\">"
+      "<div class=\"col-md-9\">"
+      "<h4 class=\"brewery-name\">{{name}}</h4>"
+      "<p class=\"brewery-location\">{{brewery_name}}</p>"
+      "</div></div>"
+    ].join(""))
+
+  $("#beer_name").on('typeahead:selected', (e, beer)->
+    $("#beer_brewery_db_id").val(beer.id)
+    $("#beer_label_url").val(beer.label)
+    $("#beer_description").val(beer.description)
+    $("#beer_brewery_name").val(beer.brewery_name)
+    $("#beer_ibu").val(beer.ibu)
+    $("#beer_srm").slider('setValue', parseInt(beer.srm))
+    $("#beer_srm").val(beer.srm)
+    $("#beer_srm").trigger(jQuery.Event( "slide", {value: parseInt(beer.srm)} ))
+    $("#beer_abv").val(beer.abv))
+
   $("#beer_brewery_name").typeahead
     remote: $("#beer_brewery_name").data("autocomplete-source") + "?name=%QUERY"
     valueKey: "name"

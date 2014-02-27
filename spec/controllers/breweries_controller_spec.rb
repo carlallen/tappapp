@@ -26,6 +26,17 @@ describe BreweriesController do
       sign_in @user
     end
 
+    describe "GET search" do
+      before (:each) do
+        BreweryDbService.stub(:search_breweries) { [OpenStruct.new(name: "A Place Where Beer is Made")] }
+      end
+
+      it "assigns found breweries as @breweries" do
+        get :search, q: "Indeed", format: :json
+        assigns(:breweries).length.should eq(1)
+      end
+    end
+
     describe "GET new" do
       it "assigns a new brewery as @brewery" do
         get :new, {}
