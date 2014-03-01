@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Date: Mon, 24 Feb 2014 20:48:07 GMT
+Server: Apache/2.2.26 (Amazon)
+Vary: Accept-Encoding
+X-Powered-By: PHP/5.3.28
+X-Ratelimit-Limit: 400
+X-Ratelimit-Remaining: 390
+Content-Length: 1401
+Connection: keep-alive
+
+{"currentPage":1,"numberOfPages":1,"totalResults":1,"data":[{"id":"LhenPJ","name":"Indeed Brewing Company","description":"Indeed Brewing Company has a penchant for adventure, both in the beers we brew and the way we go about brewing them. \r\n\r\nWe offer two flagship beers: Day Tripper Pale Ale & Midnight Ryder American Black Ale. We also brew seasonal offerings like Shenanigans Summer Ale, and Stir Crazy Winter Ale. \r\n\r\nVisit our taproom to to buy 10, 16, or 20-oz. beers, or take home 750 mL bottles of beer. Our tours are available on Saturday's, to sign up, visit our website at IndeedBrewing.com.\r\n\r\nIndeed Brewing was founding in Feb. 2011, and began production in July 2012, and opened taproom in August 2012.\r\n\r\nWe distribute kegs, 12-oz. cans, and specialty beers in 750 mL bottles.","website":"http:\/\/www.indeedbrewing.com\/","established":"2012","mailingListUrl":"http:\/\/www.indeedbrewing.com\/newsletter\/","isOrganic":"N","images":{"icon":"https:\/\/s3.amazonaws.com\/brewerydbapi\/brewery\/LhenPJ\/upload_1eEQpM-icon.png","medium":"https:\/\/s3.amazonaws.com\/brewerydbapi\/brewery\/LhenPJ\/upload_1eEQpM-medium.png","large":"https:\/\/s3.amazonaws.com\/brewerydbapi\/brewery\/LhenPJ\/upload_1eEQpM-large.png"},"status":"verified","statusDisplay":"Verified","createDate":"2012-05-11 15:06:40","updateDate":"2013-02-10 13:38:31","type":"brewery"}],"status":"success"}

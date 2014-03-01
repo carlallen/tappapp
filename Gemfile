@@ -18,6 +18,7 @@ gem 'figaro'
 gem 'haml-rails'
 gem 'pg'
 gem 'thin'
+gem 'brewery_db'
 
 group :production do
   gem 'rails_12factor'
@@ -46,4 +47,5 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
+  gem 'webmock'
 end

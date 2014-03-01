@@ -13,3 +13,4 @@ GMAIL_PASSWORD: Your_Password
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
+BREWERY_DB_API_KEY: YourBreweryDBApiKey
