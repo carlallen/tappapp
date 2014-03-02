@@ -14,7 +14,7 @@
   var tappApp = angular.module('tappApp', []);
 
     tappApp.controller('TapsCtrl', function ($http) {
-      var baseURL = "/taps"
+      var baseURL = "/taps.json"
 
       this.getTaps = function() {
         $http.get(baseURL).then(function(data) {
@@ -36,7 +36,31 @@
 %div{ "ng-app" => "tappApp" }
   %div{ "ng-controller" => "TapsCtrl as ctrl" }
     .row
-      .col-md-6{ "ng-repeat" => "tap in ctrl.taps" }
+      .col-md-6{ "ng-repeat" => "tap in ctrl.taps track by $index" }
         .panel.tap
           .panel-heading
             {{tap.beer_name}}
+            %h3.panel-title
+              Tap {{tap.number}}
+              -#= danger_link_to icon_with_text("trash", 'Destroy'), tap, :method => :delete, :data => { :confirm => 'Are you sure?' } if user_signed_in?
+          .panel-body
+            -#- if tap.beer.blank?
+              -#- if user_signed_in?
+                -#= twitter_bootstrap_form_for tap do |f|
+                  -#= f.text_field :beer_name, class: "beer_name_autocomplete"
+                  -#= f.submit "Tap Beer"
+            -#- else
+            .row
+              .col-md-8
+                %h2 {{tap.beer_name}}
+                %h5 {{tap.brewery_name}}
+                %h4 {{tap.ibu}} IBU
+                %h4 {{tap.abv}}% ABV
+                %h4
+                  Color:
+                  -#=srm(tap.srm) || "?"
+              -#.col-md-4= image_tag tap.beer.label_url
+            -#%p= simple_format(tap.beer.description)
+            -#= twitter_bootstrap_form_for tap do |f|
+              -#=f.hidden_field :beer_name, value: ""
+              -#=f.submit "Untap Beer" if user_signed_in?
