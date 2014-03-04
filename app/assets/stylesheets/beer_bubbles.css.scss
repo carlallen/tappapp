@@ -5,33 +5,31 @@
 .bubble {
   background: #ffb200;
   position: absolute;
+  border-radius: 50%;
 }
 
 @-webkit-keyframes moveBubbles { 
-    0% { top: 1200px;}
-    100% { top: -1200px;}
+    0% { top: 500px;}
+    100% { top: -500px;}
 }
-
 @-webkit-keyframes sideWays { 
     0% { margin-left:0px;}
     100% { margin-left:50px;}
 }
 
 @-moz-keyframes moveBubbles { 
-    0% { top: 1200px;}
-    100% { top: -1200px;}
+    0% { top: 500px;}
+    100% { top: -500px;}
 }
-
 @-moz-keyframes sideWays { 
     0% { margin-left:0px;}
     100% { margin-left:50px;}
 }
 
 @-o-keyframes moveBubbles { 
-    0% { top: 1200px;}
-    100% { top: -1200px;}
+    0% { top: 500px;}
+    100% { top: -500px;}
 }
-
 @-o-keyframes sideWays { 
     0% { margin-left:0px;}
     100% { margin-left:50px;}
