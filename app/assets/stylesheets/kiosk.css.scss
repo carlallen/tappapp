@@ -1,0 +1,48 @@
+
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), url(https://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+
+.kiosk {
+  background-color: #98681b; 
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif; 
+}
+
+.panel-title {
+  font-size: 50px;
+}
+
+.foreground-panel {
+  z-index: 1;
+}
+
+.kiosk-header-img {
+  z-index: 1;
+  top: 75px;
+  height:250px;
+}
+
+.beer-info-table tr td{
+  font-size: 25px;
+}
+
+.beer-description {
+  font-style: italic;
+  color: #555555;
+}
+
+/* SPACERS */
+.spacer-15 {
+  height: 15px;
+}
+
+.spacer-200 {
+  height: 200px;
+}
+
+.spacer-100 {
+  height: 100px;
+}

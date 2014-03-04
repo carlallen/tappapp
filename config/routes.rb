@@ -1,6 +1,8 @@
 Tappapp::Application.routes.draw do
   resources :taps
 
+  resources :kiosk
+
   resources :beers do
     get :search, on: :collection
   end

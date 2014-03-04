@@ -1,0 +1,11 @@
+.kiosk
+  =render partial: "beer_background"
+
+  =render partial: "header"
+
+  - @taps.each_with_index do  |tap, index|
+    =render partial: "tap_panel", locals: {tap: tap, index: index}
+
+  =render partial: "footer"        
+
+
