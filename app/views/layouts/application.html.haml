@@ -8,9 +8,9 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    -unless request.original_url.include? "kiosk"
+    -unless is_kiosk
       %header
         = render 'layouts/navigation'
-    %main{:role => "main", :class => ("kiosk" if request.original_url.include? "kiosk")}
+    %main{:role => "main", :class => ("kiosk" if is_kiosk)}
       = render 'layouts/messages'
       = yield

@@ -1,5 +1,9 @@
 module KioskHelper
 
+  def is_kiosk
+    request.original_url.include? "kiosk"
+  end
+
   def addHead(index)
 
     hb = HeadBubble.new(index)
