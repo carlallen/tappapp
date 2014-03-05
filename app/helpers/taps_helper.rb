@@ -1,13 +1,18 @@
 module TapsHelper
   include BeersHelper
 
-  def set_glass_color(color, percent)
-    "background: linear-gradient(to bottom, white, white #{percent}%, #{srm_html_color(color)} #{percent}%, #{srm_html_color(color)});"
+  def set_glass_color(index, percent)
+    reg = "background-image: linear-gradient(white, white #{percent}%, #{srm_to_html_color(index)} #{percent}%, #{srm_to_html_color(index)});"
+    webkit = "background-image: -webkit-linear-gradient(white, white #{percent}%, #{srm_to_html_color(index)} #{percent}%, #{srm_to_html_color(index)});"
+    moz = "background-image: -moz-linear-gradient(white, white #{percent}%, #{srm_to_html_color(index)} #{percent}%, #{srm_to_html_color(index)});"
+    opera = "background-image: -o-linear-gradient(white, white #{percent}%, #{srm_to_html_color(index)} #{percent}%, #{srm_to_html_color(index)});"
+
+    reg + webkit + moz + opera
   end
 
 
-  def srm_html_color(color)
-    case color
+  def srm_to_html_color(index)
+    case index
     when 0..1
       "#fee799"
     when 2
