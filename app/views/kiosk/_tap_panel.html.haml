@@ -3,7 +3,7 @@
     .panel-heading
       %h3.panel-title
         - unless tap.beer.blank?
-          = "Tap #{index+1}:  " + tap.beer_name
+          = "Tap #{index+1}:  #{tap.beer_name}" 
     .panel-body
       - unless tap.beer.blank?
         .row

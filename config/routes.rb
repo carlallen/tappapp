@@ -1,7 +1,7 @@
 Tappapp::Application.routes.draw do
   resources :taps
 
-  resources :kiosk
+  resources :kiosk, only: %w[show index]
 
   resources :beers do
     get :search, on: :collection

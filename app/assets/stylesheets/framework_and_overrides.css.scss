@@ -41,6 +41,7 @@ main {
   background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
+  overflow: hidden;
   }
 section {
   @extend .row;

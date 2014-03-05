@@ -1,7 +1,7 @@
 module ApplicationHelper
   include BootstrapHelper
 
-  def appName()
+  def app_name
     "tappapp"
   end
 

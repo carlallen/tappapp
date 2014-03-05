@@ -6,8 +6,8 @@ class BeerBubble
 
   def initialize
 
-    @size_min = 5.0
-    @size_max = 15.0
+    @size_min = 10.0
+    @size_max = 20.0
     
     @depth_min = 10.0
     @depth_max = 50.0
