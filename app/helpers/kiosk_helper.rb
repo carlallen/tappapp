@@ -4,7 +4,7 @@ module KioskHelper
     request.original_url.include? "kiosk"
   end
 
-  def addHead(index)
+  def add_head(index)
 
     hb = HeadBubble.new(index)
 
@@ -29,13 +29,13 @@ module KioskHelper
     bubble_y_location = "left: #{index * 6}%;"
     bubble_z_location = "opacity: #{bb.depth.round(1)};"
 
-    bubble_movement = assignCO2Movement(bb.size, bb.amplitude)
+    bubble_movement = assign_co2_movement(bb.size, bb.amplitude)
 
     bubble_width + bubble_height + bubble_y_location + bubble_z_location + bubble_movement 
 
   end
 
-  def assignCO2Movement(speed, amplitude)
+  def assign_co2_movement(speed, amplitude)
 
     webkit = "-webkit-animation: moveBubbles #{speed}s linear infinite, sideWays #{amplitude}s ease-in-out infinite alternate;"
     moz_animation = "-moz-animation: moveBubbles #{speed}s linear infinite, sideWays #{amplitude}s ease-in-out infinite alternate;"

@@ -12,14 +12,11 @@ class HeadBubble
     @y_min = 15
     @y_max = 35
 
-    @size = getRand(@size_min, @size_max)
+    @size = Random.new.rand(@size_min..@size_max)
+    
     @x = index
-    @y = getRand(@y_min, @y_max)
+    @y = Random.new.rand(@y_min..@y_max)
 
-  end
-
-  def getRand(a, b)
-    Random.new.rand(a..b)
   end
 
 end
