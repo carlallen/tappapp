@@ -6,6 +6,10 @@
   src: local('Droid Sans'), url(https://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
 }
 
+#beer_container {
+  height: 500px;
+}
+
 .visible-desktop {
   @media (max-width: 768px) { 
     display: none;
@@ -22,10 +26,19 @@
   z-index: 1;
 }
 
+.tap-list-panel {
+  top: -425px;
+}
+
+.canvas-image {
+  height: 500px;
+  width: 1500px;
+}
+
 .kiosk-header-img {
   z-index: 1;
-  top: 75px;
-  height:250px;
+  position: relative;
+  top: -475px;
 }
 
 /* SPACERS */

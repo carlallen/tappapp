@@ -1,5 +1,4 @@
 .kiosk.background-beer-color
-  =render partial: "beer_background"
 
   =render partial: "header"
 
@@ -8,4 +7,10 @@
 
   / =render partial: "footer"        
 
+  :javascript
+    $(document).ready(function() {
+      brew()
+    });
+
+    
 
