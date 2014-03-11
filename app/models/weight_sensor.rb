@@ -1,0 +1,3 @@
+class WeightSensor < Sensor
+
+end

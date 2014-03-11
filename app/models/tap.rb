@@ -1,5 +1,6 @@
 class Tap < ActiveRecord::Base
   belongs_to :beer
+  has_one :sensor
   default_scope -> { order("id ASC")}
 
   delegate :brewery_name, to: :beer, allow_nil: true
