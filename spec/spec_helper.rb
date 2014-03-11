@@ -44,6 +44,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     FactoryGirl.lint
     DatabaseCleaner.strategy = :truncation
+    ENV['BREWERY_DB_API_KEY'] = "BREWERY_DB_API_KEY"
   end
   config.before(:each) do
     DatabaseCleaner.start
