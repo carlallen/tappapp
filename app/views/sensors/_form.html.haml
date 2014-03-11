@@ -1,0 +1,13 @@
+- form_url = @sensor.new_record? ? sensors_path : sensor_path(@sensor)
+= twitter_bootstrap_form_for(@sensor, as: :sensor, url: form_url) do |f|
+  - if @sensor.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@sensor.errors.count, "error")} prohibited this sensor from being saved:"
+  = f.text_field :name
+  = f.toggles 'Type' do
+    - Sensor::VALID_TYPES.each do |type|
+      = f.radio_button :type, type.to_s, type.to_s
+  = f.number_field :empty
+  = f.number_field :full
+  = f.number_field :reading
+  = f.submit 'Save'

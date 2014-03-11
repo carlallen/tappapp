@@ -1,0 +1,24 @@
+%h1 Listing sensors
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th Percent Remaining
+      %th
+
+  %tbody
+    - @sensors.each do |sensor|
+      %tr
+        %td= sensor.name
+        %td= sensor.type
+        %td= sensor.percent_remaining
+        %td
+          = link_to "Show", sensor_path(sensor)
+          = primary_link_to icon_with_text("pencil", "Edit"), edit_sensor_path(sensor)
+          = danger_link_to icon_with_text("trash", 'Destroy'), sensor_path(sensor), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= primary_link_to 'New Sensor', new_sensor_path

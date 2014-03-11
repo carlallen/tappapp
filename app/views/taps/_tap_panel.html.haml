@@ -17,6 +17,12 @@
             %h5= tap.beer.brewery_name
             %h4= "#{tap.beer.ibu} IBU"
             %h4= "#{tap.beer.abv}% ABV"
+            - if tap.sensor.present?
+              %h4= "#{tap.sensor.percent_remaining}% Remaining"
+            - if user_signed_in?
+              = twitter_bootstrap_form_for tap, layout: :inline do |f|
+                = collection_select :tap, :sensor_id, Sensor.all, :id, :name, include_blank: true, selected:  tap.sensor_id
+                =f.submit "Set Sensor"
             %h4
               Color:
               =srm(tap.beer.srm) || "?"
