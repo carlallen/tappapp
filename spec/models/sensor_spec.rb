@@ -10,4 +10,11 @@ describe Sensor do
     should_not be_valid
   end
 
+  it "should calculate remaining volume remaining" do
+    subject.full = 110
+    subject.empty = 10
+    subject.reading = 60
+    subject.percent_remaining.should == 50
+  end
+
 end

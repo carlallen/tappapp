@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310212006) do
+ActiveRecord::Schema.define(version: 20140311022610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20140310212006) do
     t.integer  "tap_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "full"
+    t.integer  "empty"
   end
 
   add_index "sensors", ["tap_id"], name: "index_sensors_on_tap_id", using: :btree
