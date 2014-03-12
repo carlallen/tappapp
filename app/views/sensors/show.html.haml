@@ -9,6 +9,15 @@
 %p
   %b Reading:
   = @sensor.reading
+%p
+  %b Reading:
+  = @sensor.full
+%p
+  %b Reading:
+  = @sensor.empty
+%p
+  %b Precent Remaing:
+  = @sensor.percent_remaining
 
 = link_to 'Edit', edit_sensor_path(@sensor)
 \|
