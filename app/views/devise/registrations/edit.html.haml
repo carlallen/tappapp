@@ -2,20 +2,21 @@
   Edit #{resource_name.to_s.humanize}
 = twitter_bootstrap_form_for(resource, :as => resource_name, :url => user_registration_path(resource_name), :html => { :method => :put }) do |f|
   = devise_error_messages!
-  %p
-    = f.text_field :name
-  %div
-    = f.email_field :email
-  %div
-    = f.password_field :password, :autocomplete => "off"
-  %div
-    = f.password_field :password_confirmation
-  %div
-    = f.password_field :current_password
+  = f.text_field :name
+  = f.email_field :email
+  .form-group
+    %label API Key
+    %div
+      #{resource.authentication_token}
+  = f.password_field :password, :autocomplete => "off"
+  = f.password_field :password_confirmation
+  = f.password_field :current_password
   %div= f.submit "Update"
 
 %h3 Cancel my account
 %p
   Unhappy?
   = link_to "Cancel my account", user_registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
+</br>
 = link_to "Back", :back
+

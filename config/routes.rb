@@ -8,7 +8,9 @@ Tappapp::Application.routes.draw do
     get :search, on: :collection
   end
 
-  resources :sensors
+  resources :sensors do
+    put :reading, on: :member
+  end
 
   resources :taps
   root :to => "taps#index"

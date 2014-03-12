@@ -6,4 +6,9 @@ class WeightSensor < Sensor
       0
     end
   end
+
+  def new_reading=(new_reading)
+    self.reading=new_reading
+    self.save
+  end
 end

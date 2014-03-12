@@ -1,6 +1,8 @@
 class SensorsController < ApplicationController
-  before_filter :authenticate_user!
-  before_action :set_sensor, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user_from_token!
+  before_action :authenticate_user!
+  before_action :set_sensor, only: %w(show edit update destroy reading)
+  skip_before_action :verify_authenticity_token, only: %w(reading)
 
   # GET /sensors
   # GET /sensors.json
@@ -60,6 +62,13 @@ class SensorsController < ApplicationController
       format.html { redirect_to sensors_url }
       format.json { head :no_content }
     end
+  end
+
+  # PUT /sensors/1/reading
+  # PUT /sensors/1/reading.json
+  def reading
+    @sensor.new_reading=params[:reading]
+    render action: :show
   end
 
   private
