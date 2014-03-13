@@ -16,3 +16,26 @@
 .srm {
   color: white;
 }
+
+$srm: #fee799, #fee799, #fdd978, #fdcb5a, #fcc143, #f7b324, #f5a800, #ee9e00, #e69100,
+      #e38901, #da7e01, #d37400, #cb6c00, #c66401, #bf5c01, #b65300, #b04f00, #ac4701,
+      #a24001, #9c3900, #963500, #912f00, #8c2d01, #832501, #7e1f01, #771c01, #721b00, 
+      #6c1501, #670f01, #620f01, #5b0d01, #560c03, #5d0a02, #500a08, #4a0605, #440706, 
+      #420807, #3c0908, #390708, #39080b, #35090a;
+
+@for $i from 0 through 99 {
+  @for $j from 1 through length($srm) {
+    .glass-#{$i}-srm-#{$j} {
+      background-image: linear-gradient(white, white percentage($i / 100), nth($srm, $j) percentage($i / 100), nth($srm, $j));
+      background-image: -webkit-linear-gradient(white, white percentage($i / 100), nth($srm, $j) percentage($i / 100), nth($srm, $j));
+      background-image: -moz-linear-gradient(white, white percentage($i / 100), nth($srm, $j) percentage($i / 100), nth($srm, $j));
+      background-image: -o-linear-gradient(white, white percentage($i / 100), nth($srm, $j) percentage($i / 100), nth($srm, $j));
+    }
+  }
+}
+
+@for $i from 1 through length($srm)  {
+  .srm-#{$i} { 
+    background-color: nth($srm, $i); 
+  }
+}

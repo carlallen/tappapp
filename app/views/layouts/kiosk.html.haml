@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : app_name
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : app_name}"}
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/kineticjs/5.0.1/kinetic.min.js'
+    = csrf_meta_tags
+  %body
+    %main{:role => "main", :class => "kiosk"}
+      = render 'layouts/messages'
+      = yield
+   

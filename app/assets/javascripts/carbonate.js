@@ -1,12 +1,14 @@
 function setupHead(arr) {
   var i = 0;
   var spacing = 15;
+  var variant = "";
   while(i < window.innerWidth) {
+    variant = getRandomInt(0,9).toString()
     arr[i / spacing] = new Kinetic.Circle({
       x: i + getRandomInt(0, 3),
       y: 25,
       radius: getRandomInt(20, 75),
-      fill: '#ffffd5'
+      fill: "#fff" + variant + "d" + variant
     });
     i = i + spacing
   }
@@ -14,7 +16,16 @@ function setupHead(arr) {
   return arr
 }
 
+function animateHeadRaspberryPi(headArray, layer) {
+  var variant = ""
+  for(var j=0; j<headArray.length; j++) {
+    variant = getRandomInt(0,9).toString()
+    headArray[j].setFill("#fff" + variant + "c" + variant)
+  }
+}
+
 function animateHead(headArray, layer) {
+
   var nextFrame =0;
 
   var anim = new Kinetic.Animation(function(frame) {
@@ -36,7 +47,7 @@ function animateHead(headArray, layer) {
 
 function setupCarbonation(arr) {
   var i = 0;
-  var spacing = 20;
+  var spacing = 25;
   while(i < window.innerWidth) {
     arr[i / spacing] = new Kinetic.Circle({
       x: i + getRandomInt(0, 3),
@@ -66,29 +77,39 @@ function animateCarbonation(bubbleArray, layer) {
   anim.start()
 }
 
-function animateMultipleShapes(id, ht, setupFn, animateFn) {
+function animateMultipleShapes(params) {
   var arr = []
   var layer = new Kinetic.Layer()
   var stage = new Kinetic.Stage({
-    container: id,
+    container: params.name,
     width: window.innerWidth,
-    height: ht
+    height: params.height
   });
 
-  arr = setupFn(arr)
+  arr = params.setup(arr)
   for(var j=0; j < arr.length - 1; j++) {
     layer.add(arr[j])
   }
   stage.add(layer)
-  animateFn(arr, layer)
+  params.animate(arr, layer)
 }
 
 function headify() {
-  animateMultipleShapes('head_container', 100, setupHead, animateHead)
+  animateMultipleShapes({
+    name: "head_container",
+    height: 100,
+    setup: setupHead,
+    animate: animateHeadRaspberryPi
+  })
 }
 
 function carbonate() {
-  animateMultipleShapes('beer_container', 500, setupCarbonation, animateCarbonation)
+  animateMultipleShapes({
+    name: "beer_container",
+    height: 300,
+    setup: setupCarbonation,
+    animate: animateCarbonation
+  })
 }
 
 function brew() {
