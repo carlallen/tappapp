@@ -2,7 +2,7 @@ module ApplicationHelper
   include BootstrapHelper
 
   def app_name
-    "tappapp"
+    ENV["APP_NAME"] || "tappapp"
   end
 
 end

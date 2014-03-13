@@ -5,9 +5,4 @@
   - @taps.each_with_index do  |tap, index|
     =render partial: "tap_panel", locals: {tap: tap, index: index}
 
-  / =render partial: "footer"        
-
-  :javascript
-    $(document).ready(function() {
-      brew()
-    });
+  / =render partial: "footer"
