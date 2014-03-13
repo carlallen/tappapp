@@ -3,8 +3,6 @@ Tappapp::Application.routes.draw do
 
   resource :kiosk
 
-  #resources :kiosk, only: %w[show index]
-
   resources :beers do
     get :search, on: :collection
   end

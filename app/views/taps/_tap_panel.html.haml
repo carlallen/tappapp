@@ -1,7 +1,7 @@
 .col-md-6
   .panel.tap
     .panel-heading
-      %h3
+      %h3.panel-title
         = "Tap #{index+1}"
         = danger_link_to icon_with_text("trash", 'Destroy'), tap, :method => :delete, :data => { :confirm => 'Are you sure?' } if user_signed_in?
     .panel-body
