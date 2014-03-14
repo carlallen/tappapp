@@ -1,0 +1,55 @@
+
+@font-face {
+  font-family: 'Droid Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Droid Sans'), url(https://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+
+#beer_container {
+  height: 500px;
+}
+
+.visible-desktop {
+  @media (max-width: 768px) { 
+    display: none;
+  }
+}
+
+.kiosk {
+  background-color: #98681b; 
+  font-family: 'Droid Sans', Helvetica, Arial, sans-serif; 
+  padding: 0px;
+}
+
+.foreground-panel {
+  z-index: 1;
+}
+
+.tap-list-panel {
+  top: -425px;
+}
+
+.canvas-image {
+  height: 500px;
+  width: 1500px;
+}
+
+.kiosk-header-img {
+  z-index: 1;
+  position: relative;
+  top: -475px;
+}
+
+/* SPACERS */
+.spacer-15 {
+  height: 15px;
+}
+
+.spacer-200 {
+  height: 200px;
+}
+
+.spacer-100 {
+  height: 100px;
+}

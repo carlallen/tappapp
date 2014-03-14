@@ -4,5 +4,19 @@
 
 
 .panel.tap {
-  min-height: 500px;
+  min-height: 600px;
+  top: -100px;
+}
+
+.tap-info-table tr td{
+  font-size: 25px;
+}
+
+.tap-description {
+  font-style: italic;
+  color: #555555;
+}
+
+.tap-panel-title {
+  font-size: 30px;
 }
