@@ -38,6 +38,10 @@ main {
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
+
+  &.without_navbar {
+    margin-top: 0px;
+    }
   }
 section {
   @extend .row;

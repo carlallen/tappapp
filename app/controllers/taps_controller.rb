@@ -1,11 +1,17 @@
 class TapsController < ApplicationController
-  before_filter :authenticate_user!, except: %w(index)
+  before_filter :authenticate_user!, except: %w(index kiosk)
   before_action :set_tap, only: %w(show update destroy)
 
   # GET /taps
   # GET /taps.json
   def index
     @taps = Tap.all
+  end
+
+  # GET /kiosk
+  def kiosk
+    @taps = Tap.all
+    render layout: false
   end
 
   # GET /taps/1.json

@@ -13,6 +13,7 @@ Tappapp::Application.routes.draw do
   end
 
   resources :taps
+  get :kiosk, to: "taps#kiosk"
   root :to => "taps#index"
 
   devise_for :users, controllers: {
