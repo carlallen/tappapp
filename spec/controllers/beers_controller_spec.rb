@@ -100,7 +100,7 @@ describe BeersController do
           # specifies that the Beer created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Beer.any_instance.should_receive(:update).with({ "name" => "MyString" })
+          Beer.any_instance.should_receive(:update_attributes).with({ "name" => "MyString" })
           put :update, {:id => beer.to_param, :beer => { "name" => "MyString" }}
         end
 

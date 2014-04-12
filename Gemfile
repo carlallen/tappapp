@@ -19,6 +19,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'thin'
 gem 'brewery_db'
+gem 'make_resourceful'
 
 group :production do
   gem 'rails_12factor'

@@ -58,7 +58,7 @@ describe TapsController do
           # specifies that the Tap created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Tap.any_instance.should_receive(:update).with({ "beer_name" => "IPA" })
+          Tap.any_instance.should_receive(:update_attributes).with({ "beer_name" => "IPA" })
           put :update, {:id => tap.to_param, :tap => { "beer_name" => "IPA" }, format: :json}
         end
 

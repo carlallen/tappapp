@@ -97,7 +97,7 @@ describe BreweriesController do
           # specifies that the Brewery created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Brewery.any_instance.should_receive(:update).with({ "name" => "MyString" })
+          Brewery.any_instance.should_receive(:update_attributes).with({ "name" => "MyString" })
           put :update, {:id => brewery.to_param, :brewery => { "name" => "MyString" }}
         end
 
