@@ -1,5 +1,5 @@
-.col-md-6.foreground-panel.tap-list-panel
-  .panel.tap.panel-warning  
+.col-md-6.tap-list-panel
+  .panel.tap
     .panel-heading
       %h3.tap-panel-title
         - unless tap.beer.blank?
@@ -7,19 +7,19 @@
     .panel-body
       - unless tap.beer.blank?
         .row
-          .col-md-4= image_tag tap.beer.label_url
-          .col-md-4
-            %h1= tap.beer_name
-            %h2= tap.beer.brewery_name
           .col-md-4
             %div
-              =image_tag  "/assets/beerglass.png", class: "glass-50-srm-#{tap.beer.srm + 1}"
+              =image_tag  "/assets/beerglass.png", class: "glass-0-srm-#{tap.beer.srm}"
+          .col-md-4
+            %h2= tap.beer_name
+            %h3= tap.beer.brewery_name
+          .col-md-4= image_tag tap.beer.label_url
         .spacer-15
         %table.table.tap-info-table
           %tr
-            %td= "#{tap.beer.ibu} IBU"
+            %td= "#{tap.beer.ibu} IBU" 
             %td= "#{tap.beer.abv}% ABV"
             %td
               Color
               =srm(tap.beer.srm) || "?"
-        %h3.tap-description= tap.beer.description
+        %p.tap-description= tap.beer.description

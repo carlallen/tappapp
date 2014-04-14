@@ -23,7 +23,7 @@ $srm: #fee799, #fee799, #fdd978, #fdcb5a, #fcc143, #f7b324, #f5a800, #ee9e00, #e
       #6c1501, #670f01, #620f01, #5b0d01, #560c03, #5d0a02, #500a08, #4a0605, #440706, 
       #420807, #3c0908, #390708, #39080b, #35090a;
 
-@for $i from 0 through 99 {
+@for $i from 0 through 100 {
   @for $j from 1 through length($srm) {
     .glass-#{$i}-srm-#{$j} {
       background-image: linear-gradient(white, white percentage($i / 100), nth($srm, $j) percentage($i / 100), nth($srm, $j));

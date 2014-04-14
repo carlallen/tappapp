@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Droid Sans';
   font-style: normal;
@@ -6,50 +5,40 @@
   src: local('Droid Sans'), url(https://themes.googleusercontent.com/static/fonts/droidsans/v3/s-BiyweUPV0v-yRb-cjciBsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
 }
 
-#beer_container {
-  height: 500px;
+html {
+  height: 100%;
 }
 
-.visible-desktop {
-  @media (max-width: 768px) { 
-    display: none;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #434343;
+  background-image:linear-gradient(#13759b, #282828);
 }
 
 .kiosk {
-  background-color: #98681b; 
   font-family: 'Droid Sans', Helvetica, Arial, sans-serif; 
   padding: 0px;
-}
-
-.foreground-panel {
-  z-index: 1;
-}
-
-.tap-list-panel {
-  top: -425px;
-}
-
-.canvas-image {
-  height: 500px;
-  width: 1500px;
+  background-color: transparent;
+  background-image:       linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  height:100%;
+  background-size:50px 50px;
 }
 
 .kiosk-header-img {
-  z-index: 1;
-  position: relative;
-  top: -475px;
+  padding: 50px;
 }
 
-/* SPACERS */
 .spacer-15 {
   height: 15px;
 }
 
-.spacer-200 {
-  height: 200px;
+.panel-heading {
+  background-color: #555555;
+  color: #ffffff;
 }
 
-.spacer-100 {
-  height: 100px;
+.panel {
+  border-color: #555555;
 }
