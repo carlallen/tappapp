@@ -8,28 +8,32 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body#kiosk
-    %header
+    .col-md-12.kiosk-header-img
+      =image_tag "header.png"
     %main.without_navbar
       - @taps.each_with_index do  |tap, index|
         .col-md-6
-          .panel.tap
+          .panel.tap.panel-info
+            .panel-heading
+              .tap-header.panel-title
+                Tap #{index+1}: #{tap.beer_name}
             .panel-body
               .row
-                .col-md-12
-                  %h3= "Tap #{index+1}"
+                .col-md-4
+                  %div
+                    =image_tag  "/assets/beerglass.png", class: "glass-0-srm-#{tap.beer.srm}"
+                .col-md-4
                   %h2= tap.beer_name
-              .row
-                .col-md-6
                   %h3= tap.beer.brewery_name
-                  %h3= "#{tap.beer.ibu} IBU"
-                  %h3= "#{tap.beer.abv}% ABV"
-                  - if tap.sensor.present?
-                    %h3= "#{tap.sensor.percent_remaining}% Remaining"
-                  %h3
-                    Color:
+                .col-md-4= image_tag tap.beer.label_url
+              .spacer-15
+              %table.table
+                %tr
+                  %td= "#{tap.beer.ibu} IBU" 
+                  %td= "#{tap.beer.abv}% ABV"
+                  %td
+                    Color
                     =srm(tap.beer.srm) || "?"
-                .col-md-6= image_tag tap.beer.label_url
-              .row
-                .col-md-12
-                  = simple_format(tap.beer.description)
-
+                  - if tap.sensor.present?
+                    %td= "#{tap.sensor.percent_remaining}% Remaining"
+              %p.tap-description= tap.beer.description
