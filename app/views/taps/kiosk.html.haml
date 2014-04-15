@@ -21,7 +21,7 @@
               .row
                 .col-md-4
                   %div
-                    =image_tag  "/assets/beerglass.png", class: "glass-0-srm-#{tap.beer.srm}"
+                    =image_tag "beerglass.png", class: "glass-0-srm-#{tap.beer.srm}"
                 .col-md-4
                   %h2= tap.beer_name
                   %h3= tap.beer.brewery_name
@@ -29,7 +29,7 @@
               .spacer-15
               %table.table
                 %tr
-                  %td= "#{tap.beer.ibu} IBU" 
+                  %td= "#{tap.beer.ibu} IBU"
                   %td= "#{tap.beer.abv}% ABV"
                   %td
                     Color
