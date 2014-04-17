@@ -18,22 +18,25 @@
               .tap-header.panel-title
                 Tap #{index+1}: #{tap.beer_name}
             .panel-body
-              .row
-                .col-md-4
-                  %div
-                    =image_tag "beerglass.png", class: "glass-0-srm-#{tap.beer.srm}"
-                .col-md-4
-                  %h2= tap.beer_name
-                  %h3= tap.beer.brewery_name
-                .col-md-4= image_tag tap.beer.label_url
-              .spacer-15
-              %table.table
-                %tr
-                  %td= "#{tap.beer.ibu} IBU"
-                  %td= "#{tap.beer.abv}% ABV"
-                  %td
-                    Color
-                    =srm(tap.beer.srm) || "?"
-                  - if tap.sensor.present?
-                    %td= "#{tap.sensor.percent_remaining}% Remaining"
-              %p.tap-description= tap.beer.description
+              - if tap.beer.present?
+                .row
+                  .col-md-2
+                    %div
+                      =image_tag "beerglass.png", class: "glass-0-srm-#{tap.beer.srm}", id: "beer_glass"
+                  .col-md-6
+                    %h2= tap.beer_name
+                    %h3= tap.beer.brewery_name
+                  .col-md-4= image_tag tap.beer.label_url
+                .spacer-15
+                %table.table
+                  %tr
+                    %td= "#{tap.beer.ibu} IBU"
+                    %td= "#{tap.beer.abv}% ABV"
+                    %td
+                      Color
+                      =srm(tap.beer.srm) || "?"
+                    - if tap.sensor.present?
+                      %td= "#{tap.sensor.percent_remaining}% Remaining"
+                %p.tap-description= tap.beer.description
+              - else
+                %h3 There is no beer on this tap
