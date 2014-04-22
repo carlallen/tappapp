@@ -5,6 +5,8 @@ class BeersController < ApplicationController
     actions :all
   end
 
+  include LimitedByName
+
   # GET /beers/search.json
   def search
     @beers = BreweryDbService.search_beers(params[:q])
@@ -15,5 +17,4 @@ class BeersController < ApplicationController
     params.require(:beer).permit(:name, :description, :brewery_name, :ibu, :srm, :abv, :brewery_db_id, :label_url)
   end
   private :object_parameters
-
 end

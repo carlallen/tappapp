@@ -5,6 +5,8 @@ class BreweriesController < ApplicationController
     actions :all
   end
 
+  include LimitedByName
+
   # GET /breweries/search.json
   def search
     @breweries = BreweryDbService.search_breweries(params[:q])
