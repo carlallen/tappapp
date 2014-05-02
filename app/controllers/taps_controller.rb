@@ -26,7 +26,7 @@ class TapsController < ApplicationController
   end
 
   def object_parameters
-    return nil if action_name == "new"
+    return nil if %w(new create).include? action_name
     params.require(:tap).permit(:beer_name, :sensor_id)
   end
   private :object_parameters
