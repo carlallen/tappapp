@@ -16,12 +16,13 @@
 .srm {
   color: white;
   padding: 5px;
+  position: relative;
 }
 
 $srm: #fee799, #fdd978, #fdcb5a, #fcc143, #f7b324, #f5a800, #ee9e00, #e69100,
-      #e38901, #da7e01, #d37400, #cb6c00, #c66401, #bf5c01, #b65300, #b04f00, 
-      #ac4701, #a24001, #9c3900, #963500, #912f00, #8c2d01, #832501, #7e1f01, 
-      #771c01, #721b00, #6c1501, #670f01, #620f01, #5b0d01, #560c03, #5d0a02, 
+      #e38901, #da7e01, #d37400, #cb6c00, #c66401, #bf5c01, #b65300, #b04f00,
+      #ac4701, #a24001, #9c3900, #963500, #912f00, #8c2d01, #832501, #7e1f01,
+      #771c01, #721b00, #6c1501, #670f01, #620f01, #5b0d01, #560c03, #5d0a02,
       #500a08, #4a0605, #440706, #420807, #3c0908, #390708, #39080b, #35090a,
       #01DF01, #DF0101; //secret code 41 is green, 42 is red ;)
 
@@ -37,7 +38,25 @@ $srm: #fee799, #fdd978, #fdcb5a, #fcc143, #f7b324, #f5a800, #ee9e00, #e69100,
 }
 
 @for $i from 1 through length($srm)  {
-  .srm-#{$i} { 
-    background-color: nth($srm, $i); 
+  .srm-#{$i} {
+    background-color: nth($srm, $i);
   }
+}
+
+%special-srm-after {
+  background-color: inherit;
+  bottom: 0;
+  left: 0;
+  padding-top: 3px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.srm-41::after {
+  @extend %special-srm-after;
+  content: "Green";
+}
+.srm-42::after {
+  @extend %special-srm-after;
+  content: "Red";
 }
